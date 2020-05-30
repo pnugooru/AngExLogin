@@ -1,0 +1,54 @@
+<!--<button mat-raised-button (click)="isLinear = !isLinear" id="toggle-linear">
+  {{!isLinear ? 'Enable linear mode' : 'Disable linear mode'}}
+</button>-->
+
+  <div class="card">
+    <h5 class="card-header">Set Up MFA for User [ONE TIME PROCESS]</h5>
+    </div>
+      <mat-vertical-stepper linear #stepper>
+        <mat-step label="Generating Secret Code" state="secretcode">
+          <p>Do you want to generate a Secret Code?</p>
+          <div>
+            <button mat-button matStepperNext>Generate</button>
+          </div>
+        </mat-step>
+        <mat-step label="Secret Code" state="secretcode">
+          <p>Secret Code: x82ng2G2eTe1</p>
+          <div>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup" errorMessage="MFA Token DOES NOT Match">
+          <form [formGroup]="secondFormGroup">
+            <ng-template matStepLabel>Enter MFA Token</ng-template>
+            <mat-form-field>
+              <mat-label>MFA Token</mat-label>
+              <input matInput formControlName="secondCtrl" placeholder="000000000"
+                     required>
+            </mat-form-field>
+            <span *ngIf="secondFormGroup.controls.secondCtrl.invalid && secondFormGroup.controls.secondCtrl.dirty">
+              <span *ngIf="secondFormGroup.controls.secondCtrl.errors.required" class="error">MFA Token must be entered </span>
+              <span *ngIf="secondFormGroup.controls.secondCtrl.errors.minlength" class="error">MFA Token must be at least 10 characters</span>
+            </span>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Submit</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step label="Refresh Token" state="secretcode">
+          <p>Refresh Token: x82ng2G2eTe1</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button matStepperNext>Next</button>
+          </div>
+        </mat-step>
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="stepper.reset()">Reset</button>
+          </div>
+        </mat-step>
+      </mat-vertical-stepper>

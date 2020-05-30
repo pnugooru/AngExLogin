@@ -1,0 +1,25 @@
+<div class="card">
+  <h5 class="card-header">Set Up MFA for User [ONE TIME PROCESS]</h5>
+  <div class="card-body">
+    <form [formGroup]="form">
+      <div class="form-group">
+        <label for="tc_secret_code">Secret Code</label>
+        <input type="text" formControlName="tc_secret_code">
+      </div>
+      <div class="form-group">
+        <label for="tc_refresh_token">Refresh Token</label>
+        <input type="text" formControlName="tc_secret_code">
+      </div>
+      <div class="form-group">
+        <label for="mfa_token">Enter MFA Token</label>
+        <input type="text" formControlName="mfa_token">
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <input type="text" formControlName="message">
+      </div>
+      
+     
+     </form>
+  </div>
+  </div>

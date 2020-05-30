@@ -1,0 +1,37 @@
+
+
+  
+    <app-main-nav *ngIf="user;else notuser">
+    </app-main-nav>
+
+    <ng-template #notuser>
+      <router-outlet></router-outlet>
+    </ng-template>
+<!-- main app container -->
+<!--<div class="app-container">
+  <alert></alert>
+  <router-outlet></router-outlet>
+</div>-->
+
+
+
+<!-- credits -->
+<div class="text-center">
+
+  <p>
+    <a href="https://www.ustaxcourt.gov" target="_blank">US Tax Courts System</a>
+  </p>
+  <p>
+    <a href="https://ui-irs.ef-cms.ustaxcourt.gov/" target="_blank">Tax Courts Log In</a>
+  </p>
+</div>
+
+
+<!-- nav
+ <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="user">
+   <div class="navbar-nav">
+     <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+     <a class="nav-item nav-link" routerLink="/users" routerLinkActive="active">Users</a>
+     <a class="nav-item nav-link" (click)="logout()">Logout</a>
+   </div>
+ </nav> -->
